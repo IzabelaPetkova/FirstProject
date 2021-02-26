@@ -9,9 +9,10 @@ $db_username = "izabela";
 $db_password = "1234";
 
 //Правим проверките във функция, за да преизползваме кода
-function login($db_u, $db_p) {
+function login($db_u, $db_p)
+{
     //Проверяваме дали са въведени username и password и ако липсва едното да извежда съобщение
-    if(isset($_POST) && !empty($_POST)){
+    if (isset($_POST) && !empty($_POST)) {
         if (
             isset($_POST["username"]) &&
             !empty($_POST["username"]) &&
@@ -28,7 +29,7 @@ function login($db_u, $db_p) {
             } else {
                 header("Location: login.php");
             }
-        }else {
+        } else {
             header("Location: login.php");
         }
     }
@@ -37,12 +38,14 @@ function login($db_u, $db_p) {
 //Викаме функцията, можем да го правим много пъти
 //login("bela","1234");
 
-class Authentication {
+class Authentication
+{
     private $db_username = "izabela";
     private $db_password = "1234";
 
-    public function login() {
-        if(isset($_POST) && !empty($_POST)){
+    public function login()
+    {
+        if (isset($_POST) && !empty($_POST)) {
             if (
                 isset($_POST["username"]) &&
                 !empty($_POST["username"]) &&
@@ -60,7 +63,7 @@ class Authentication {
                 } else {
                     header("Location: login.php");
                 }
-            }else {
+            } else {
                 header("Location: login.php");
             }
         }
@@ -72,6 +75,7 @@ class Authentication {
         header("Location: login.php");
     }
 }
+
 //Създаване на инстанция на класа
 $auth = new Authentication();
 //Викаме функцията login от класа
@@ -84,7 +88,9 @@ $auth->logout();
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
         /* Full-width input fields */
         input[type=text], input[type=password] {
@@ -149,8 +155,8 @@ $auth->logout();
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
             padding-top: 60px;
         }
 
@@ -185,13 +191,21 @@ $auth->logout();
         }
 
         @-webkit-keyframes animatezoom {
-            from {-webkit-transform: scale(0)}
-            to {-webkit-transform: scale(1)}
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
         }
 
         @keyframes animatezoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         /* Change styles for span and cancel button on extra small screens */
@@ -200,6 +214,7 @@ $auth->logout();
                 display: block;
                 float: none;
             }
+
             .cancelbtn {
                 width: 100%;
             }
@@ -222,10 +237,10 @@ $auth->logout();
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" >
+            <input type="text" placeholder="Enter Username" name="username">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" >
+            <input type="password" placeholder="Enter Password" name="password">
 
             <button type="submit">Login</button>
             <label>
@@ -234,7 +249,9 @@ $auth->logout();
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
             <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
     </form>
@@ -245,7 +262,7 @@ $auth->logout();
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }

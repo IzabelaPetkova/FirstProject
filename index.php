@@ -59,8 +59,9 @@ $assocArray = [
 //        echo "Dog has not been found";
 //    }
 //}
-function findOfBreed($nameOfDog){
-    switch ($nameOfDog){
+function findOfBreed($nameOfDog)
+{
+    switch ($nameOfDog) {
         case "Kiara":
             echo "Husky <br>";
             break;
